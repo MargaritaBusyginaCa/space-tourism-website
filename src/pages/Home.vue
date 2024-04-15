@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
+const navigate = () => {
+  router.push("/destination");
+};
+</script>
 
 <template>
   <section class="home-space">
@@ -13,7 +19,7 @@
       </p>
     </div>
     <div class="explore-btn">
-      <button>EXPLORE</button>
+      <button @click="navigate">EXPLORE</button>
     </div>
   </section>
 </template>
