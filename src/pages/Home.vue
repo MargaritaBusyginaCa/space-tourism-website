@@ -68,6 +68,51 @@ const navigate = () => {
     }
   }
 }
+//tablets
+@media (min-width: 600px) {
+  .home-space {
+    background-image: url("/assets/home/background-home-tablet.jpg");
+    .space-text {
+      .size-5 {
+        margin-top: 50px;
+      }
+      h1 {
+        font-size: 150px;
+      }
+      .body-text {
+        padding: 0px 100px;
+      }
+    }
+    .explore-btn {
+      button {
+        padding: 100px 48px;
+        font-size: 32px;
+      }
+    }
+  }
+}
+
+//desktops
+@media (min-width: 901px) {
+  .home-space {
+    background-image: url("/assets/home/background-home-desktop.jpg");
+    flex-direction: row;
+    align-items: end;
+    text-align: left;
+    justify-content: space-around;
+    .space-text {
+      margin-bottom: 200px;
+      width: min-content;
+      padding-left: 20px;
+      .body-text {
+        padding: 0;
+      }
+    }
+    .explore-btn {
+      margin-bottom: 200px;
+    }
+  }
+}
 
 @keyframes colorChange {
   from {
