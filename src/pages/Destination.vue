@@ -10,7 +10,7 @@ const switchPlanet = (index) => {
 
 <template>
   <main>
-    <p class="size-5 page-heading"><span>01</span> Pick your destination</p>
+    <p class="condensed page-heading"><span>01</span> Pick your destination</p>
     <img
       class="planet-image"
       :src="`/assets/destination/image-${planets[activePlanet].name}.png`"
@@ -31,11 +31,11 @@ const switchPlanet = (index) => {
     <hr />
     <div class="travel-info">
       <div>
-        <h2 class="size-5">Avg. Distance</h2>
+        <h2 class="condensed">Avg. Distance</h2>
         <p>{{ planets[activePlanet].avgDistance }}</p>
       </div>
       <div>
-        <h2 class="size-5">Est. Travel Time</h2>
+        <h2 class="condensed">Est. Travel Time</h2>
         <p>{{ planets[activePlanet].travelTime }}</p>
       </div>
     </div>

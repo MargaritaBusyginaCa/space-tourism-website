@@ -9,7 +9,7 @@ const navigate = () => {
 <template>
   <section class="home-space">
     <div class="space-text">
-      <p class="size-5">SO, YOU WANT TO TRAVEL TO</p>
+      <p class="condensed">SO, YOU WANT TO TRAVEL TO</p>
       <h1>SPACE</h1>
       <p class="body-text">
         Let’s face it; if you want to go to space, you might as well genuinely
@@ -73,7 +73,7 @@ const navigate = () => {
   .home-space {
     background-image: url("/assets/home/background-home-tablet.jpg");
     .space-text {
-      .size-5 {
+      .condensed {
         margin-top: 50px;
       }
       h1 {

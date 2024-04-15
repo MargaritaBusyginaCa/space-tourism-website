@@ -10,38 +10,19 @@ body {
   background-color: $space;
   color: $white;
 }
-h1,
-.size-2,
-.size-3,
-.size-4,
-.size-5 {
+h1 {
   font-style: normal;
   font-weight: 400;
+  font-family: $font_primary;
   margin: 0;
-}
-h1 {
   font-size: 150px;
 }
-.size-2 {
-  font-size: 100px;
-}
-.size-3 {
-  font-size: 56px;
-}
-.size-4 {
-  font-size: 32px;
-}
-.size-5 {
+.condensed {
   font-family: $font_secondary_condensed;
   font-size: 28px;
   letter-spacing: 4.72px;
   color: $lavender;
   text-transform: uppercase;
-}
-.nav-text {
-  font-family: $font_secondary;
-  font-size: 16px;
-  letter-spacing: 2.7px;
 }
 .body-text {
   font-family: $font_secondary;
@@ -54,12 +35,11 @@ h1 {
   h1 {
     font-size: 80px;
   }
-  .size-5 {
+  .condensed {
     font-size: 16px;
     letter-spacing: 2.7px;
   }
   .body-text {
-    // font-size: 15px;
     line-height: 25px;
   }
 }

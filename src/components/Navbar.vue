@@ -31,7 +31,7 @@ const links = ref([
     <hr />
     <ul class="navigator">
       <li v-for="(link, index) in links" :key="link.name">
-        <router-link :to="link.path"
+        <router-link :to="link.path" class="condensed"
           ><span>0{{ index }}</span
           >{{ link.name }}</router-link
         >
@@ -84,10 +84,7 @@ hr {
       a {
         color: $white;
         text-decoration: none;
-        font-family: $font_secondary_condensed;
         font-size: 14px;
-        letter-spacing: 2.36px;
-        text-transform: uppercase;
       }
       span {
         display: none;
