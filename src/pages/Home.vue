@@ -25,7 +25,7 @@ const navigate = () => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/variables.scss";
+@import "@/assets/scss/variables.scss";
 .home-space {
   width: 100%;
   height: 100vh;

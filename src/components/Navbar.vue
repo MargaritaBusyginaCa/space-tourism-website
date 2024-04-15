@@ -41,7 +41,7 @@ const links = ref([
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/variables.scss";
+@import "@/assets/scss/variables.scss";
 nav {
   display: flex;
   justify-content: space-between;

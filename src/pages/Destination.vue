@@ -1,40 +1,8 @@
 <script setup>
 import { ref } from "vue";
+import planets from "@/assets/planets.json";
 const activePlanet = ref(0);
-const planets = ref([
-  {
-    index: 0,
-    name: "moon",
-    description:
-      "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
-    avgDistance: "384,400 km",
-    travelTime: "3 days",
-  },
-  {
-    index: 1,
-    name: "mars",
-    description:
-      "Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!",
-    avgDistance: "225 MIL. km",
-    travelTime: "9 months",
-  },
-  {
-    index: 2,
-    name: "europa",
-    description:
-      "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
-    avgDistance: "628 MIL. km",
-    travelTime: "3 years",
-  },
-  {
-    index: 3,
-    name: "titan",
-    description:
-      "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
-    avgDistance: "1.6 BIL. km",
-    travelTime: "7 years",
-  },
-]);
+
 const switchPlanet = (index) => {
   activePlanet.value = index;
 };
@@ -42,7 +10,7 @@ const switchPlanet = (index) => {
 
 <template>
   <main>
-    <p class="size-5"><span>01</span> Pick your destination</p>
+    <p class="size-5 page-heading"><span>01</span> Pick your destination</p>
     <img
       class="planet-image"
       :src="`/assets/destination/image-${planets[activePlanet].name}.png`"
@@ -50,7 +18,12 @@ const switchPlanet = (index) => {
     />
     <ul>
       <li v-for="(planet, index) in planets" :key="planet.name">
-        <button @click="switchPlanet(index)">{{ planet.name }}</button>
+        <button
+          @click="switchPlanet(index)"
+          :class="index === activePlanet ? 'active' : null"
+        >
+          {{ planet.name }}
+        </button>
       </li>
     </ul>
     <h1>{{ planets[activePlanet].name }}</h1>
@@ -70,10 +43,10 @@ const switchPlanet = (index) => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/variables.scss";
+@import "@/assets/scss/variables.scss";
 main {
   height: 100vh;
-  padding: 40px 20px;
+  padding: 0px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,10 +54,15 @@ main {
   text-align: center;
   background-image: url("/assets/destination/background-destination-tablet.jpg");
   background-repeat: no-repeat;
-  span {
-    margin-right: 10px;
-    color: grey;
+  .page-heading {
+    margin-top: 40px;
+    span {
+      margin-right: 10px;
+      color: grey;
+      font-weight: 600;
+    }
   }
+
   ul {
     padding: 0;
     display: flex;
@@ -94,6 +72,7 @@ main {
     li {
       button {
         border: none;
+        padding: 10px 0;
         background-color: transparent;
         letter-spacing: 2.36px;
         font-weight: 400;
@@ -101,6 +80,9 @@ main {
         font-family: $font_secondary_condensed;
         color: $lavender;
         text-transform: uppercase;
+        &.active {
+          border-bottom: 3px solid $white;
+        }
       }
     }
   }

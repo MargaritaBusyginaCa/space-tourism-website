@@ -8,5 +8,5 @@ import Navbar from "@/components/Navbar.vue";
 </template>
 
 <style lang="scss">
-@import "@/assets/global.scss";
+@import "@/assets/scss/global.scss";
 </style>
