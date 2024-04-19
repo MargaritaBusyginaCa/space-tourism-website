@@ -7,7 +7,7 @@ const links = ref([
   },
   {
     name: "Destination",
-    path: "/destination",
+    path: "/destination/moon",
   },
   {
     name: "Crew",

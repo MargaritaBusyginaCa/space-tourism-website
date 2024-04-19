@@ -2,7 +2,7 @@
 import { useRouter } from "vue-router";
 const router = useRouter();
 const navigate = () => {
-  router.push("/destination");
+  router.push("/destination/moon");
 };
 </script>
 

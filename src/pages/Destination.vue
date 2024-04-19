@@ -1,10 +1,24 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import planets from "@/assets/planets.json";
-const activePlanet = ref(0);
+import { useRouter, useRoute } from "vue-router";
+const router = useRouter();
+const route = useRoute();
+const activePlanet = ref(route.params.name ? route.params.name : "moon");
+
+const activePlanetIndex = computed(() => {
+  let index;
+  planets.map((planet) => {
+    if (planet.name === activePlanet.value) {
+      index = planet.index;
+    }
+  });
+  return index;
+});
 
 const switchPlanet = (index) => {
   activePlanet.value = index;
+  router.push(`/destination/${activePlanet.value}`);
 };
 </script>
 
@@ -16,32 +30,32 @@ const switchPlanet = (index) => {
       </p>
       <img
         class="planet-image"
-        :src="`/assets/destination/image-${planets[activePlanet].name}.png`"
-        :alt="`image of ${planets[activePlanet].name}`"
+        :src="`/assets/destination/image-${activePlanet}.png`"
+        :alt="`image of ${activePlanet}`"
       />
     </div>
     <div class="col-2">
       <ul>
         <li v-for="(planet, index) in planets" :key="planet.name">
           <button
-            @click="switchPlanet(index)"
-            :class="index === activePlanet ? 'active' : null"
+            @click="switchPlanet(planet.name)"
+            :class="index === activePlanetIndex ? 'active' : null"
           >
             {{ planet.name }}
           </button>
         </li>
       </ul>
-      <h1>{{ planets[activePlanet].name }}</h1>
-      <p class="body-text">{{ planets[activePlanet].description }}</p>
+      <h1>{{ activePlanet }}</h1>
+      <p class="body-text">{{ planets[activePlanetIndex]?.description }}</p>
       <hr />
       <div class="travel-info">
         <div>
           <h2 class="condensed">Avg. Distance</h2>
-          <p>{{ planets[activePlanet].avgDistance }}</p>
+          <p>{{ planets[activePlanetIndex]?.avgDistance }}</p>
         </div>
         <div>
           <h2 class="condensed">Est. Travel Time</h2>
-          <p>{{ planets[activePlanet].travelTime }}</p>
+          <p>{{ planets[activePlanetIndex]?.travelTime }}</p>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/pages/Home.vue";
-import Destination from "@/pages/Destination.vue";
+// Lazy load the route components
+const Home = () => import("@/pages/Home.vue");
+const Destination = () => import("@/pages/Destination.vue");
+
 const routes = [
   {
     path: "/",
@@ -9,14 +11,13 @@ const routes = [
   },
   {
     path: "/destination",
+    redirect: "/destination/moon", // Redirects to a default or specified destination
+  },
+  {
+    path: "/destination/:name",
     name: "Destination",
     component: Destination,
   },
-  //   {
-  //     path: "/slideshow/:name",
-  //     name: "Slideshow",
-  //     component: Slideshow,
-  //   },
 ];
 const router = createRouter({
   history: createWebHistory(),
