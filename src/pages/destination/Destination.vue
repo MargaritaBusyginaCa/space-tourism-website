@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from "vue";
-import planets from "@/assets/planets.json";
+import planets from "@/pages/destination/planets.json";
 import { useRouter, useRoute } from "vue-router";
 const router = useRouter();
 const route = useRoute();
@@ -64,5 +64,5 @@ const switchPlanet = (index) => {
 
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
-@import "@/pages/destination.scss";
+@import "@/pages/destination/destination.scss";
 </style>
