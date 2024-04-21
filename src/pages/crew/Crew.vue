@@ -1,7 +1,25 @@
 <script setup>
 import crew from "@/pages/crew/crew.json";
-import { ref } from "vue";
-const activeMember = ref(0);
+import { ref, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
+const router = useRouter();
+const route = useRoute();
+const activeMember = ref(route.params.name ? route.params.name : crew[0].path);
+
+const activeMemberIndex = computed(() => {
+  let index;
+  crew.map((member) => {
+    if (member.path === activeMember.value) {
+      index = member.index;
+    }
+  });
+  return index;
+});
+
+const switchMember = (index) => {
+  activeMember.value = index;
+  router.push(`/crew/${activeMember.value}`);
+};
 </script>
 
 <template>
@@ -10,20 +28,23 @@ const activeMember = ref(0);
     <div class="col-1">
       <ul>
         <li v-for="(member, index) in crew" :key="member.name">
-          <button></button>
+          <button
+            @click="switchMember(member.path)"
+            :class="index === activeMemberIndex ? 'active' : null"
+          />
         </li>
       </ul>
       <div class="crew-info">
-        <h2 class="crew-title">{{ crew[activeMember].title }}</h2>
-        <h3 class="crew-member">{{ crew[activeMember].fullName }}</h3>
-        <p class="body-text">{{ crew[activeMember].description }}</p>
+        <h2 class="crew-title">{{ crew[activeMemberIndex].title }}</h2>
+        <h3 class="crew-member">{{ crew[activeMemberIndex].fullName }}</h3>
+        <p class="body-text">{{ crew[activeMemberIndex].description }}</p>
       </div>
     </div>
     <div class="col-2">
       <img
         class="crew-member-img"
-        :src="`/assets/crew/image-${crew[activeMember].path}.png`"
-        :alt="`picture of ${crew[activeMember].fullName}`"
+        :src="`/assets/crew/image-${crew[activeMemberIndex].path}.png`"
+        :alt="`picture of ${crew[activeMemberIndex].fullName}`"
       />
     </div>
   </main>
@@ -63,7 +84,13 @@ main {
           border-radius: 50%;
           padding: 6px;
           border: none;
-          background-color: #979797;
+          background-color: #5f5f5f;
+          &.active {
+            background-color: $white;
+          }
+          &:hover {
+            background-color: #979797;
+          }
         }
       }
     }
@@ -79,7 +106,7 @@ main {
       h2 {
         font-size: 16px;
         opacity: 0.5;
-        margin: 0;
+        margin-top: 0;
       }
       h3 {
         margin: 0;

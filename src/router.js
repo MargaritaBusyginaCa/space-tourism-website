@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import crew from "@/pages/crew/crew.json";
 // Lazy load the route components
 const Home = () => import("@/pages/Home.vue");
 const Destination = () => import("@/pages/destination/Destination.vue");
@@ -21,6 +22,10 @@ const routes = [
   },
   {
     path: "/crew",
+    redirect: `/crew/${crew[0].path}`,
+  },
+  {
+    path: "/crew/:name",
     name: "Crew",
     component: Crew,
   },
