@@ -25,6 +25,7 @@ const switchMember = (index) => {
 <template>
   <main>
     <h1 class="condensed page-heading"><span>02</span> Meet your crew</h1>
+    <div class="main-content"></div>
     <div class="col-1">
       <ul>
         <li v-for="(member, index) in crew" :key="member.name">
@@ -112,6 +113,9 @@ main {
         margin: 0;
         font-size: 24px;
       }
+      p {
+        margin: 0;
+      }
     }
   }
   .col-2 {
@@ -123,6 +127,77 @@ main {
     align-items: center;
     .crew-member-img {
       height: 323px;
+    }
+  }
+}
+// tablets
+@media (min-width: 600px) {
+  main {
+    justify-content: flex-end;
+    .page-heading {
+      padding-bottom: 0;
+      align-self: flex-start;
+    }
+    .col-1 {
+      order: 1;
+      ul {
+        order: 2;
+      }
+    }
+    .col-2 {
+      order: 2;
+      border: none;
+      .crew-member-img {
+        height: 532px;
+      }
+    }
+  }
+}
+//desktops
+@media (min-width: 1101px) {
+  main {
+    flex-direction: row;
+    padding: 0 60px;
+    background-image: url("/assets/crew/background-crew-desktop.jpg");
+    align-items: flex-end;
+    justify-content: center;
+    .page-heading {
+      // position: absolute;
+      // left: 60px;
+      // top: 20%;
+    }
+    .col-1 {
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 100px;
+      ul {
+        position: absolute;
+        bottom: 100px;
+        li > button {
+          padding: 7px;
+        }
+      }
+      .crew-info {
+        text-align: left;
+        h2 {
+          font-size: 32px;
+          margin-bottom: 0;
+        }
+        h3 {
+          font-size: 56px;
+        }
+        p {
+          margin-top: 27px;
+          width: 70%;
+        }
+      }
+    }
+    .col-2 {
+      .crew-member-img {
+        height: unset;
+      }
     }
   }
 }
