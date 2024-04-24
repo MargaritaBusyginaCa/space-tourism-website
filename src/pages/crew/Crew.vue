@@ -24,9 +24,8 @@ const switchMember = (index) => {
 
 <template>
   <main>
-    <h1 class="condensed page-heading"><span>02</span> Meet your crew</h1>
-    <div class="main-content"></div>
     <div class="col-1">
+      <h1 class="condensed page-heading"><span>02</span> Meet your crew</h1>
       <ul>
         <li v-for="(member, index) in crew" :key="member.name">
           <button
@@ -63,17 +62,19 @@ main {
   padding: 0 20px;
   background-image: url("/assets/crew/background-crew-tablet.jpg");
   gap: 20px;
-  .page-heading {
-    font-size: 18px;
-    padding-bottom: 20px;
-    span {
-      color: grey;
-      margin-right: 8px;
-      font-weight: 600;
-    }
-  }
   .col-1 {
     order: 2;
+    .page-heading {
+      font-size: 18px;
+      margin-left: 0;
+      position: absolute;
+      top: 10%;
+      span {
+        color: grey;
+        margin-right: 8px;
+        font-weight: 600;
+      }
+    }
     ul {
       list-style-type: none;
       display: flex;
@@ -113,8 +114,9 @@ main {
         margin: 0;
         font-size: 24px;
       }
-      p {
+      .body-text {
         margin: 0;
+        padding: 0 20px;
       }
     }
   }
@@ -125,6 +127,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .crew-member-img {
       height: 323px;
     }
@@ -134,19 +137,27 @@ main {
 @media (min-width: 600px) {
   main {
     justify-content: flex-end;
-    .page-heading {
-      padding-bottom: 0;
-      align-self: flex-start;
-    }
+
     .col-1 {
       order: 1;
+      .page-heading {
+        position: unset;
+        padding: 0;
+      }
       ul {
         order: 2;
+      }
+      .crew-info {
+        .body-text {
+          width: 70%;
+          margin: 0 auto;
+        }
       }
     }
     .col-2 {
       order: 2;
       border: none;
+
       .crew-member-img {
         height: 532px;
       }
@@ -156,22 +167,19 @@ main {
 //desktops
 @media (min-width: 1101px) {
   main {
-    flex-direction: row;
-    padding: 0 60px;
     background-image: url("/assets/crew/background-crew-desktop.jpg");
-    align-items: flex-end;
-    justify-content: center;
-    .page-heading {
-      // position: absolute;
-      // left: 60px;
-      // top: 20%;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+
     .col-1 {
-      height: 60%;
-      display: flex;
-      flex-direction: column;
       align-items: flex-start;
       padding-bottom: 100px;
+      .page-heading {
+        align-self: flex-start;
+        font-size: 28px;
+        letter-spacing: 4.72px;
+        padding-bottom: 100px;
+      }
       ul {
         position: absolute;
         bottom: 100px;
@@ -188,13 +196,15 @@ main {
         h3 {
           font-size: 56px;
         }
-        p {
-          margin-top: 27px;
-          width: 70%;
+        .body-text {
+          width: 100%;
+          margin: 0;
+          padding: 0;
         }
       }
     }
     .col-2 {
+      align-self: flex-end;
       .crew-member-img {
         height: unset;
       }
