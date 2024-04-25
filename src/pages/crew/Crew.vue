@@ -16,8 +16,8 @@ const activeMemberIndex = computed(() => {
   return index;
 });
 
-const switchMember = (index) => {
-  activeMember.value = index;
+const switchMember = (path) => {
+  activeMember.value = path;
   router.push(`/crew/${activeMember.value}`);
 };
 </script>
