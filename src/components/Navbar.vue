@@ -47,9 +47,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  position: absolute;
-  width: calc(100% - 24px * 2);
-
   .logo {
     height: 40px;
     width: 40px;
@@ -96,7 +93,6 @@ hr {
 //desktops
 @media (min-width: 901px) {
   nav {
-    margin: 20px 0;
     ul {
       padding: 39px 100px;
       span {

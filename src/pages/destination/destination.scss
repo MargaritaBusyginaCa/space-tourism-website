@@ -4,7 +4,6 @@ main {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-image: url("/assets/destination/background-destination-tablet.jpg");
   gap: 50px;
   .col-1 {
     width: 100%;
@@ -79,8 +78,6 @@ main {
 @media (min-width: 600px) {
   main {
     gap: 0;
-    background-image: url("/assets/destination/background-destination-desktop.jpg");
-    background-repeat: round;
     padding: 0 20px;
     .col-1 {
       .page-heading {

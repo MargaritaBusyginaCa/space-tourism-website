@@ -60,7 +60,6 @@ main {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  background-image: url("/assets/crew/background-crew-tablet.jpg");
   gap: 20px;
   .col-1 {
     order: 2;
@@ -130,7 +129,6 @@ main {
 @media (min-width: 600px) {
   main {
     justify-content: flex-end;
-
     .col-1 {
       order: 1;
       .page-heading {
@@ -160,7 +158,6 @@ main {
 //desktops
 @media (min-width: 1101px) {
   main {
-    background-image: url("/assets/crew/background-crew-desktop.jpg");
     display: grid;
     grid-template-columns: repeat(2, 45%);
 

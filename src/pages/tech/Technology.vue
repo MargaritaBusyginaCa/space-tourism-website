@@ -61,7 +61,7 @@ function resizeWindow() {
       </div>
     </div>
     <div class="col-2">
-      <h1 class="condensed page-heading"><span>03</span> SPACE LAUNCH 101</h1>
+      <p class="condensed page-heading"><span>03</span> SPACE LAUNCH 101</p>
       <img :src="technologyImage" alt="technology-vehicle" />
     </div>
   </main>
@@ -71,7 +71,6 @@ function resizeWindow() {
 @import "@/assets/scss/variables.scss";
 @import "@/pages/destination/destination.scss";
 main {
-  background-image: url("/assets/technology/background-technology-tablet.jpg");
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,7 +139,6 @@ main {
 //desktops
 @media (min-width: 1100px) {
   main {
-    background-image: url("/assets/technology/background-technology-desktop.jpg");
     flex-direction: row;
     justify-content: space-around;
     .col-1 {

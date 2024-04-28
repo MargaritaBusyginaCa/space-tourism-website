@@ -29,8 +29,6 @@ const navigate = () => {
 .home-space {
   width: 100%;
   height: 100vh;
-  background-image: url("/assets/home/background-home-mobile.jpg");
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,7 +69,6 @@ const navigate = () => {
 //tablets
 @media (min-width: 600px) {
   .home-space {
-    background-image: url("/assets/home/background-home-tablet.jpg");
     .space-text {
       .condensed {
         margin-top: 50px;
@@ -95,13 +92,12 @@ const navigate = () => {
 //desktops
 @media (min-width: 901px) {
   .home-space {
-    background-image: url("/assets/home/background-home-desktop.jpg");
     flex-direction: row;
-    align-items: end;
+    // align-items: end;
     text-align: left;
     justify-content: space-around;
     .space-text {
-      margin-bottom: 200px;
+      // margin-bottom: 200px;
       width: min-content;
       padding-left: 20px;
       .body-text {
@@ -109,7 +105,7 @@ const navigate = () => {
       }
     }
     .explore-btn {
-      margin-bottom: 200px;
+      // margin-bottom: 200px;
     }
   }
 }
