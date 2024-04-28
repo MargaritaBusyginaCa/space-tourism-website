@@ -30,7 +30,11 @@ h1 {
   line-height: 32px;
   color: $lavender;
 }
-
+span {
+  color: grey;
+  margin-right: 8px;
+  font-weight: 600;
+}
 @media (max-width: 768px) {
   h1 {
     font-size: 80px;

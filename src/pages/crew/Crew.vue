@@ -69,11 +69,6 @@ main {
       margin-left: 0;
       position: absolute;
       top: 10%;
-      span {
-        color: grey;
-        margin-right: 8px;
-        font-weight: 600;
-      }
     }
     ul {
       list-style-type: none;

@@ -101,7 +101,6 @@ hr {
       padding: 39px 100px;
       span {
         display: unset;
-        margin-right: 10px;
       }
     }
     hr {
