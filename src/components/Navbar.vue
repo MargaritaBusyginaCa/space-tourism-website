@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 const links = ref([
   {
     name: "Home",
@@ -18,6 +18,14 @@ const links = ref([
     path: "/technology",
   },
 ]);
+
+const showMenu = ref(false);
+function toggleMenu() {
+  showMenu.value = !showMenu.value;
+}
+const menuDisplay = computed(() => {
+  return showMenu.value ? "flex" : "none";
+});
 </script>
 
 <template>
@@ -25,11 +33,14 @@ const links = ref([
     <router-link to="/">
       <img class="logo" src="/assets/shared/logo.svg" alt="our logo"
     /></router-link>
-    <div class="hamburger">
+    <button class="hamburger" @click="toggleMenu">
       <img src="/assets/shared/icon-hamburger.svg" alt="hamburger menu" />
-    </div>
+    </button>
     <hr />
-    <ul class="navigator">
+    <ul>
+      <button class="hamburger" @click="toggleMenu">
+        <img src="/assets/shared/icon-close.svg" alt="hamburger menu" />
+      </button>
       <li v-for="(link, index) in links" :key="link.name">
         <router-link :to="link.path" class="condensed"
           ><span>0{{ index }}</span
@@ -51,9 +62,26 @@ nav {
     height: 40px;
     width: 40px;
   }
+  .hamburger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 }
 ul {
-  display: none;
+  display: v-bind(menuDisplay);
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  width: 50%;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  text-align: center;
+  backdrop-filter: blur(81px);
+  li {
+    list-style: none;
+  }
 }
 hr {
   display: none;
@@ -73,6 +101,9 @@ hr {
     }
     ul {
       display: flex;
+      flex-direction: row;
+      position: unset;
+      height: auto;
       list-style-type: none;
       gap: 37px;
       background-color: rgba(56, 56, 56, 0.269);
