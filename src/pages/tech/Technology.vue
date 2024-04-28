@@ -122,7 +122,6 @@ main {
   .col-2 {
     order: 1;
     .page-heading {
-      font-size: 16px;
       padding-bottom: 32px;
     }
     img {

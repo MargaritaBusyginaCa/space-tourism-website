@@ -81,12 +81,10 @@ main {
     gap: 0;
     background-image: url("/assets/destination/background-destination-desktop.jpg");
     background-repeat: round;
+    padding: 0 20px;
     .col-1 {
       .page-heading {
         align-self: flex-start;
-        margin-left: 50px;
-        font-size: 20px;
-        letter-spacing: 3.38px;
       }
       .planet-image {
         width: 300px;

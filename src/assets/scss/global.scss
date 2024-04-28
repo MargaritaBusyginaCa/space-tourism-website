@@ -35,9 +35,20 @@ span {
   margin-right: 8px;
   font-weight: 600;
 }
+//mobile
 @media (max-width: 768px) {
   h1 {
     font-size: 80px;
+  }
+  .page-heading {
+    font-size: 16px;
+    color: $white;
+    letter-spacing: 2.7px;
+    span {
+      font-size: 16px;
+      letter-spacing: 2.7px;
+      color: grey;
+    }
   }
   .condensed {
     font-size: 16px;
@@ -45,5 +56,22 @@ span {
   }
   .body-text {
     line-height: 25px;
+  }
+}
+
+// tablets
+@media (min-width: 600px) {
+  .page-heading,
+  .page-heading > span {
+    font-size: 20px;
+    letter-spacing: 3.38px;
+  }
+}
+//desktops
+@media (min-width: 901px) {
+  .page-heading,
+  .page-heading > span {
+    font-size: 28px;
+    letter-spacing: 4.72px;
   }
 }

@@ -65,8 +65,6 @@ main {
   .col-1 {
     order: 2;
     .page-heading {
-      font-size: 18px;
-      margin-left: 0;
       position: absolute;
       top: 10%;
     }
@@ -171,8 +169,6 @@ main {
       padding-bottom: 100px;
       .page-heading {
         align-self: flex-start;
-        font-size: 28px;
-        letter-spacing: 4.72px;
         padding-bottom: 100px;
       }
       ul {
