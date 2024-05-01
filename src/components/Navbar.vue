@@ -71,6 +71,7 @@ nav {
 ul {
   display: v-bind(menuDisplay);
   flex-direction: column;
+  gap: 62px;
   position: fixed;
   height: 100vh;
   width: 50%;
@@ -79,8 +80,20 @@ ul {
   z-index: 99;
   text-align: center;
   backdrop-filter: blur(81px);
+  text-align: left;
+  padding-top: 64px;
   li {
     list-style: none;
+    a {
+      text-decoration: none;
+      span {
+        color: white;
+      }
+    }
+  }
+  .hamburger {
+    align-self: flex-end;
+    margin: 25px;
   }
 }
 hr {
