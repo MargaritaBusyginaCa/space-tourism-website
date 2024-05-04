@@ -23,6 +23,9 @@ const showMenu = ref(false);
 function toggleMenu() {
   showMenu.value = !showMenu.value;
 }
+function closeMenu() {
+  showMenu.value = false;
+}
 const menuDisplay = computed(() => {
   return showMenu.value ? "flex" : "none";
 });
@@ -41,7 +44,7 @@ const menuDisplay = computed(() => {
       <button class="hamburger" @click="toggleMenu">
         <img src="/assets/shared/icon-close.svg" alt="hamburger menu" />
       </button>
-      <li v-for="(link, index) in links" :key="link.name">
+      <li v-for="(link, index) in links" :key="link.name" @click="closeMenu">
         <router-link :to="link.path" class="condensed"
           ><span>0{{ index }}</span
           >{{ link.name }}</router-link
@@ -125,7 +128,7 @@ hr {
       a {
         color: $white;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 12px;
       }
       span {
         display: none;
@@ -139,6 +142,9 @@ hr {
   nav {
     ul {
       padding: 39px 100px;
+      a {
+        font-size: 14px;
+      }
       span {
         display: unset;
       }
