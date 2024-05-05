@@ -1,7 +1,8 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import planets from "@/pages/destination/planets.json";
 import { useRouter, useRoute } from "vue-router";
+import { gsap } from "gsap";
 const router = useRouter();
 const route = useRoute();
 const activePlanet = ref(route.params.name ? route.params.name : "moon");
@@ -19,7 +20,17 @@ const activePlanetIndex = computed(() => {
 const switchPlanet = (index) => {
   activePlanet.value = index;
   router.push(`/destination/${activePlanet.value}`);
+  planetAnimation.value.restart();
 };
+const planetAnimation = ref(null);
+onMounted(() => {
+  planetAnimation.value = gsap.to(".planet-image", {
+    rotation: 90,
+    x: 1,
+    duration: 3,
+    ease: "expo",
+  });
+});
 </script>
 
 <template>

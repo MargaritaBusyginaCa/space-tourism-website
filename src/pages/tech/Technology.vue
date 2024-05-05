@@ -173,7 +173,7 @@ main {
         top: 20%;
       }
       img {
-        width: unset;
+        width: 340px;
       }
     }
   }
