@@ -48,13 +48,14 @@ const navigate = () => {
   }
 
   .explore-btn {
-    animation-name: slideIn;
-    animation-duration: 2s;
+    margin: 100px;
     background-color: transparent;
     padding: 40px;
     border-radius: 50%;
     &:hover {
       background-color: rgba(200, 200, 200, 0.264);
+      -webkit-animation: breathing 5s ease-out infinite normal;
+      animation: breathing 5s ease-out infinite normal;
     }
     button {
       font-family: $font_primary;
@@ -63,6 +64,7 @@ const navigate = () => {
       border: none;
       padding: 68px 27px 59px 29px;
       border-radius: 50%;
+      cursor: pointer;
     }
   }
 }
@@ -93,19 +95,14 @@ const navigate = () => {
 @media (min-width: 901px) {
   .home-space {
     flex-direction: row;
-    // align-items: end;
     text-align: left;
     justify-content: space-around;
     .space-text {
-      // margin-bottom: 200px;
       width: min-content;
       padding-left: 20px;
       .body-text {
         padding: 0;
       }
-    }
-    .explore-btn {
-      // margin-bottom: 200px;
     }
   }
 }
@@ -127,6 +124,50 @@ const navigate = () => {
 
   to {
     margin-top: 0%;
+  }
+}
+
+@-webkit-keyframes breathing {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  60% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  60% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 </style>
