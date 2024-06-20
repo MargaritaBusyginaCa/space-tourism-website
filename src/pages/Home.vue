@@ -48,7 +48,6 @@ const navigate = () => {
   }
 
   .explore-btn {
-    margin: 100px;
     background-color: transparent;
     padding: 40px;
     border-radius: 50%;
